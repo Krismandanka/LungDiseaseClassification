@@ -75,7 +75,7 @@ import React from "react";
 import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // import TimelineWithIcons from "./Components/TimelineWithIcons";
-import { useState,useEffect } from "react";
+// import { useState,useEffect } from "react";
 import ImageClassifier from "./Component/PageFinal"
 
 // import MainEl from "./Components/MainEl"
@@ -91,7 +91,7 @@ const App = () => {
     <Router>
     <Routes>
 
-      <Route path="/xray-classification" element={<ImageClassifier />} />
+      <Route path="/" element={<ImageClassifier />} />
     </Routes>
     </Router>
   );

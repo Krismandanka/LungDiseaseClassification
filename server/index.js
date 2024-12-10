@@ -6,7 +6,9 @@ const fs = require("fs");
 const tf = require("@tensorflow/tfjs-node");
 
 const app = express();
-const PORT = 5001;
+require("dotenv").config();
+const PORT = process.env.BASE_URL||5001;
+console.log("huii",process.env.BASE_URL);
 
 // Set up Multer for file uploads
 const upload = multer({ dest: "uploads/" });
@@ -14,7 +16,7 @@ const cors=require('cors');
 
 app.use(cors(
     {
-        origin: ["https://study-notion-eta.vercel.app","http://localhost:3000","www.studynotion.fun","studynotion.fun","https://studynotion.fun","https://www.studynotion.fun","http://127.0.0.1:3000"],
+        origin: ["https://study-notion-eta.vercel.app","http://localhost:3000","www.studynotion.fun","studynotion.fun","https://studynotion.fun","https://www.studynotion.fun","http://127.0.0.1:3000","http://localhost:5001"],
         credentials: true,
     }
 ));

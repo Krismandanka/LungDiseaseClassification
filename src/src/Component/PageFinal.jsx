@@ -1,10 +1,14 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+// require("dotenv").config();
+
 
 const ImageClassifier = () => {
   const [image, setImage] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  console.log("oiiiiiis",process.env.REACT_APP_API_URL);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -22,10 +26,12 @@ const ImageClassifier = () => {
     const formData = new FormData();
     formData.append('image', image);
 
+
     try {
       // Send image to Flask API for classification
-      console.log("huiiiiiiiii",formData);
-      const response = await axios.post('http://localhost:5001/api/classify', formData, {
+      // console.log("huiiiiiiiii",formData);
+
+      const response = await axios.post(`http://localhost:5001/api/classify`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
